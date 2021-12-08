@@ -1,0 +1,120 @@
+Creamos directo la carpertaas con el front y el back
+
+en la del back mandamos
+npm init -y
+npm i express
+npm i cors
+npm i nodemon -g
+
+para tirar el nodemon tenemos que ver de bajarlo en 
+la carpeta que corresponda y que siempre lo busque de una 
+direccion en especifico 
+
+
+ahora vamos haciendo la ruta para cada uno de los procedimientos 
+
+
+luego generramos el metodos get con sus requerimietnos su end procedimientos
+y su res 
+
+hasta ahi
+
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.listen(10000, () => {
+  console.log("Servidor Escuchando en el puerto 10000");
+});
+
+app.get("/productos", (req, res) => {
+  const productos = [
+    { id: 1, nombre: "Monitor", precio: 38000 },
+    { id: 5, nombre: "Mouse", precio: 5600 },
+    { id: 8, nombre: "Teclado", precio: 7800 },
+    { id: 15, nombre: "Impresora", precio: 45000 },
+  ];
+
+  res.json(productos);
+});
+
+
+Recordar que el .find para una lista la recorre dependiendo de que
+cantidad de elementos tengan 
+
+message  en el res.json siemore va entre llaves
+
+el backend basico finalziado queda asi
+
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.get("/productos", (req, res) => {
+  const productos = [
+    { id: 1, nombre: "Monitor", precio: 38000 },
+    { id: 5, nombre: "Mouse", precio: 5600 },
+    { id: 8, nombre: "Teclado", precio: 7800 },
+    { id: 15, nombre: "Impresora", precio: 45000 },
+  ];
+
+  res.json(productos);
+});
+
+app.get("/productos/:id", (req, res) => {
+  const idBuscado = req.params.id;
+
+  const usuarioEncontrado = productos.find(
+    (producto) => producto.id === parseInt(idBuscado)
+  );
+  res.json(usuarioEncontrado);
+});
+
+app.post("/productos", (req, res) => {
+  res.json({ message: `Producto actualizado` });
+});
+
+app.put("/productos/:id", (req, res) => {
+  const idBuscado = req.params.id;
+  res.json({ message: `El id buscado es:${idBuscado}` });
+});
+
+app.delete("/productos/:id", (req, res) => {
+  const idBuscado = req.params.id;
+  res.json({ message: `El id eliminado es:${idBuscado}` });
+});
+
+app.listen(10000);
+
+
+Vemos de crear las tablas con las devoluciones de inner html para cada elementos
+
+Vamos a font awesone 
+
+Primero vinculamos la libreria 
+
+Usamos jsonDelivr
+o cdnjs
+
+
+
+es un cdn (lugar ocn muchas librerias)
+
+https://www.jsdelivr.com/
+
+https://cdnjs.com/libraries/font-awesome
+
+en el cdnjs nos deja las versiones asi que podemos elegir una de las ultimas versiones
+
+para enlazarla copiaamos el html y lo colocamos  en 
+
+
+Agregamos el modal 
+
+Vemos que lo atributos los tenemos desde el html 5
+
+data-toggle="Con que va a estar relacionado"
+
+data-target="Con cual id lo relacionamos"
